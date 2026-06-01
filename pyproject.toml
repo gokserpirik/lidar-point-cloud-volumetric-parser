@@ -1,0 +1,38 @@
+[project]
+name = "LiDAR Point Cloud Volumetric Parser MVP"
+version = "0.1.0"
+description = "Point cloud processing and visualization utilities for LiDAR data"
+authors = [
+    {name = "Gökser Pirik"}
+]
+requires-python = ">=3.13"
+dependencies = [
+    "laspy[lazrs]>=2.5.0",
+    "numpy>=2.1.0",
+    "matplotlib>=3.9.0",
+    "pandas>=3.0.3",
+    "rasterio>=1.5.0",
+    "geopandas>=1.1.3",
+    "shapely>=2.1.2",
+    "alphashape>=1.3.1",
+]
+license = {file = "LICENSE"}
+keywords = ["lidar", "point-cloud", "volumetry", "geospatial", "survey"]
+readme = "README.md"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Other Audience",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: GIS",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "black", "ruff"]
+
+[project.urls]
+GitHub = "https://github.com/gokserpirik"
+LinkedIn = "https://www.linkedin.com/in/gokserpirik/"
+Repository = "https://github.com/gokserpirik/lidar-point-cloud-volumetric-parser"
