@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 import laspy
 import numpy as np
 import alphashape
@@ -49,3 +50,50 @@ print(area)
 heights = filtered_z - avg_z
 volume = area * heights.mean()
 print(volume)
+
+""" Visualizing the point cloud. Using ::200 to downsample the data."""
+fig = plt.figure()
+ax = fig.add_subplot(projection='3d')
+sc = ax.scatter(filtered_x[::200], filtered_y[::200], filtered_z[::200], c=filtered_z[::200], cmap='terrain', s=1)
+x_bound, y_bound = boundary.exterior.xy
+ax.plot(x_bound, y_bound, zs=filtered_z.min(), color='red', linewidth=2, label="Footprint")
+
+
+""" elevation color bar """
+cbar = fig.colorbar(sc, ax=ax, pad=0.1)
+cbar.set_label('Elevation (m)')
+
+""" engineering-standart spatial reference system """
+ax.set_xlabel('Easting (X)')
+ax.set_ylabel('Northing (Y)')
+ax.set_zlabel('Elevation (Z)')
+ax.set_title('Topographic Point Cloud with Footprint Boundary')
+ax.legend()
+
+""" save and show the plot """
+plt.savefig("lidar_volumetry.png", dpi=300, bbox_inches='tight')
+plt.show()
+plt.close()
+
+""" Visualizing the complete point cloud (no filtering). Using ::200 to downsample the data."""
+fig = plt.figure()
+ax = fig.add_subplot(projection='3d')
+sc = ax.scatter(np.array(x)[::200], np.array(y)[::200], np.array(z)[::200], c=np.array(z)[::200], cmap='terrain', s=1)
+x_bound, y_bound = boundary.exterior.xy
+ax.plot(x_bound, y_bound, zs=np.array(z).min(), color='red', linewidth=2, label="Footprint")
+
+""" elevation color bar """
+cbar = fig.colorbar(sc, ax=ax, pad=0.1)
+cbar.set_label('Elevation (m)')
+
+""" engineering-standard spatial reference system """
+ax.set_xlabel('Easting (X)')
+ax.set_ylabel('Northing (Y)')
+ax.set_zlabel('Elevation (Z)')
+ax.set_title('Complete Point Cloud with Footprint Boundary')
+ax.legend()
+
+""" save and show the plot """
+plt.savefig("lidar_volumetry_complete.png", dpi=300, bbox_inches='tight')
+plt.show()
+plt.close()
