@@ -53,7 +53,7 @@ A civil engineering team is managing a highway construction project. Every week,
 1. **Metadata Inspection:** Reads the LAS/LAZ file header to retrieve overall coordinate bounds, scales, offsets, and total point count.
 2. **Baseline Filtering:** Calculates the average elevation (`Z_avg`) across the dataset. It treats points above this baseline as the pile (high-ground) and filters out points below it.
 3. **Footprint Boundary:** Uses the `alphashape` library on a downsampled set of coordinates to trace a 2D boundary footprint of the isolated pile.
-4. **Volumetric Integration:** Multiplies the calculated 2D footprint area by the average height of the pile points above the baseline to estimate the volume in cubic meters ($m^3$).
+4. **Volumetric Integration:** Multiplies the calculated 2D footprint area by the average height of the pile points above the baseline to estimate the volume in cubic meters ($m^3$). (Note: This provides a rapid, lightweight first-pass estimate. For high-precision commercial stockpile audits, standard raster/DEM volumetric integration is recommended).
 5. **Visualization:** Generates and saves 3D plots showing the point cloud along with its footprint.
 
 ---
