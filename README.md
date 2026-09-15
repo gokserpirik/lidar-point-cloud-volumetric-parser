@@ -4,9 +4,6 @@ A simple, lightweight Python pipeline designed to parse raw LiDAR datasets (`.la
 
 > ℹ️
 > This is a portfolio demonstration and proof of concept. It is not intended for commercial engineering, large-scale production, or high-precision survey audits.
-
-> ⚠️
-> This code is written by hand with AI assistance to understand the logic and workflow. Goal of the repository is to understand the concept and create a MVP product, using AI as the assistant. README is also written with AI assistance to optimize SEO and readability.
 ---
 
 ## 📊 Dataset Credit & Sourcing
@@ -126,3 +123,8 @@ The script automatically generates and saves two 3D scatter plot visualizations 
 2. **`lidar_volumetry_complete.png`**: Visualizes the entire raw dataset (complete point cloud) to show the stockpile in its environmental context, with the footprint boundary overlaid at the base.
    
    ![Complete LiDAR Volumetry](lidar_volumetry_complete.png)
+
+---
+
+### 🧠 Development Process
+Building this required a deep dive into the ASPRS LAS binary specifications (specifically IEEE 754 doubles and packed bitfields). I used a hybrid development approach: I architected the pipeline, handled the NumPy array logic, and wrote the test suite, while leaning heavily on LLMs to rapidly decode the low-level binary byte-alignment and accelerate the boilerplate. It was a highly effective way to learn low-level file formats without getting bogged down in manual hex-editing.
