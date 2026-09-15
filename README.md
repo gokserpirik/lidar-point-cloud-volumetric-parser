@@ -1,9 +1,6 @@
 # LiDAR Point Cloud Volumetric Parser (MVP)
 
 A simple, lightweight Python pipeline designed to parse raw LiDAR datasets (`.las`/`.laz`), isolate points above an average elevation baseline, and calculate rough surface areas and volumetric payloads.
-
-> ℹ️
-> This is a portfolio demonstration and proof of concept. It is not intended for commercial engineering, large-scale production, or high-precision survey audits.
 ---
 
 ## 📊 Dataset Credit & Sourcing
