@@ -1,8 +1,6 @@
 __pycache__/
 *.py[cod]
-*$py.class
 *.so
-.Python
 env/
 venv/
 .venv
@@ -27,4 +25,7 @@ htmlcov/
 .DS_Store
 *.laz
 *.las
-.rasterio
+*.rasterio
+*.csv
+/reviews
+/docs

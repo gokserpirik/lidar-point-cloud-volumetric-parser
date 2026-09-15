@@ -67,8 +67,9 @@ To adjust the script for different data files, open `lidar_volumetry.py` and mod
 
 ### 1. Input File
 ```python
-las = laspy.read("las2018.laz")  # Change to your filename
+INPUT_FILE = "las2018.laz"  # Change to your filename
 ```
+The script prints labeled metrics to the terminal and writes them to `<input-stem>-las.csv` (e.g. `las2018-las.csv`).
 
 ### 2. Downsampling Rate (for Boundary Calculation)
 ```python
@@ -89,7 +90,7 @@ boundary = alphashape.alphashape(downsampled, alpha=0.0)
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Python 3.13 or newer
+- Python 3.12 or newer
 - [uv](https://github.com/astral-sh/uv) (recommended) or `pip`
 
 ### Install & Run
@@ -106,6 +107,13 @@ boundary = alphashape.alphashape(downsampled, alpha=0.0)
    pip install -e .
    python lidar_volumetry.py
    ```
+
+### Tests
+Fast unit + integration tests live in `tests/` (synthetic data, no large files needed):
+```bash
+uv sync --extra dev
+uv run --extra dev pytest
+```
 
 ### Output Files & Visualizations
 
